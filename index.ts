@@ -137,6 +137,7 @@ class PongRoom {
 
 io.on('connection', (socket) => {
     socket.on("login", (name) => {
+        name = name.slice(0, 40);
         console.log("logging in ", socket.id, name)
         players[socket.id] = new Player(socket, name)
         console.log(Object.values(players).map((player) => player.toString()))
