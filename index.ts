@@ -146,10 +146,6 @@ io.on('connection', (socket) => {
 });
 
 
-
-
-
-
 function enqueue(player:Player) {
     console.log("Queuing")
     if (latestRoom == null || latestRoom.isFull) {
@@ -179,7 +175,7 @@ function addHandlers(player:Player,socket:Socket) {
     });
 
     socket.on("paddlePosition", (position:number) => {
-        player.opponent!.emit("paddingPosition", position)
+        player.opponent!.emit("paddlePosition", position);
     })
 
     socket.on("disconnect", () => {
